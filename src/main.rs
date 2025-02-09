@@ -26,6 +26,7 @@ mod exercise;
 mod project;
 mod run;
 mod verify;
+mod test;
 
 // In sync with crate version
 const VERSION: &str = "5.5.1";
@@ -462,7 +463,7 @@ fn watch(
     let should_quit = Arc::new(AtomicBool::new(false));
 
     let mut watcher: RecommendedWatcher = Watcher::new(tx, Duration::from_secs(1))?;
-    watcher.watch(Path::new("./exercises"), RecursiveMode::Recursive)?;
+    watcher.watch(Path::new("exercises"), RecursiveMode::Recursive)?;
 
     clear_screen();
 
